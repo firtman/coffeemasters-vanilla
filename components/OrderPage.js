@@ -70,28 +70,30 @@ export class OrderPage extends HTMLElement {
     }
 
     setFormBindings(form) {
-        form.addEventListener("submit", event => {
-            event.preventDefault();
-            alert(`Thanks for your order ${this.#user.name}.`);
-            this.#user.name = "";
-            this.#user.email = "";
-            this.#user.phone = "";
-            // TODO Send the data to the server
-        })
-
-        // Set double data binding
-        this.#user = new Proxy(this.#user, {
-            set(target, property, value) {
-                target[property] = value;
-                form.elements[property].value = value;
-                return true;
-            }
-        });
-        Array.from(form.elements).forEach( element => {
-            element.addEventListener("change", event => {
-                this.#user[element.name] = element.value;
+        if (form) {
+            form.addEventListener("submit", event => {
+                event.preventDefault();
+                alert(`Thanks for your order ${this.#user.name}.`);
+                this.#user.name = "";
+                this.#user.email = "";
+                this.#user.phone = "";
+                // TODO Send the data to the server
             })
-        })
+
+            // Set double data binding
+            this.#user = new Proxy(this.#user, {
+                set(target, property, value) {
+                    target[property] = value;
+                    form.elements[property].value = value;
+                    return true;
+                }
+            });
+            Array.from(form.elements).forEach( element => {
+                element.addEventListener("change", event => {
+                    this.#user[element.name] = element.value;
+                })
+            })
+        }
     }
   }
   
