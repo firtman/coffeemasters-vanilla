@@ -18,6 +18,7 @@ export default class CartItem extends HTMLElement {
         this.querySelector(".name").textContent = item.product.name;
         this.querySelector(".price").textContent = `$${item.product.price.toFixed(2)}`;
         this.querySelector("a.delete-button").addEventListener("click", event => {
+            event.preventDefault();
             removeFromCart(item.product.id);
         })
       }
