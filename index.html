@@ -16,7 +16,9 @@ There is also "async" keyword which tries to download JS script async but as soo
 browser halts the rest of the parsing and loads the file first and then continues.
 -->
 <!-- Using type="module" will convert below JS file into a module. this will allow us
-to then have other files in /services to be imported in app.js -->
+to then have other files in /services to be imported in app.js. More importantly
+all the files that are imported in app.js will not at all be global so you are not exposing everything
+to whole world thereby avoiding conflicts -->
     <script src="app.js" defer type="module"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="app.webmanifest">
