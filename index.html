@@ -15,7 +15,9 @@ of the code
 There is also "async" keyword which tries to download JS script async but as soon as the script is ready
 browser halts the rest of the parsing and loads the file first and then continues.
 -->
-    <script src="app.js" defer></script>
+<!-- Using type="module" will convert below JS file into a module. this will allow us
+to then have other files in /services to be imported in app.js -->
+    <script src="app.js" defer type="module"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="app.webmanifest">
     <link rel="apple-touch-icon" href="images/icons/icon.png">
