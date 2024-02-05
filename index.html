@@ -9,7 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
+    <!-- We use defer so that browser does not stop parsing this html. When it encounters
+    this keyword browser starts downloading it in parallel but continues to execute rest
+of the code 
+There is also "async" keyword which tries to download JS script async but as soon as the script is ready
+browser halts the rest of the parsing and loads the file first and then continues.
+-->
+    <script src="app.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="app.webmanifest">
     <link rel="apple-touch-icon" href="images/icons/icon.png">
