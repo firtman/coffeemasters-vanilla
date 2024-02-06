@@ -8,6 +8,7 @@
  */
 
 import { loadData } from "./services/Menu.js";
+import Router from "./services/Router.js";
 import Store from "./services/Store.js"; // put .js if import doesnt work
 
 /**Since Store is imported as a module below is a workaround to have access
@@ -18,7 +19,9 @@ import Store from "./services/Store.js"; // put .js if import doesnt work
  */
 window.myapp = {};
 myapp.store = Store;
+myapp.router = Router;
 
 window.addEventListener('DOMContentLoaded', () => {
   loadData();
+  myapp.router.init();
 });
